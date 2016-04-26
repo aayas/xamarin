@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cart.Page1">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Name="Add Product" Activated="OnClick1" Order="Primary" Priority="0"></ToolbarItem>
+    <ToolbarItem Name="New Bill Entry" Activated="Expand" Order="Primary" Priority="0"></ToolbarItem>
+  </ContentPage.ToolbarItems>
+
+  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+    <Button x:Name="bexpand" Text="New Entry" Clicked="Expand" />
+    <!--
+    <Button x:Name="bnext" Text="Add product" Clicked="NextPage1" />
+    -->
+    <StackLayout x:Name="pker" IsVisible="False" Orientation="Vertical" VerticalOptions="FillAndExpand">
+      <StackLayout  Orientation="Horizontal">
+        <Label Text="choose item : " />
+        <Picker x:Name="pk1"  ></Picker>
+      </StackLayout>
+
+      <StackLayout  Orientation="Horizontal">
+        <Label Text="pick quantity : " HorizontalOptions="CenterAndExpand" />
+        <Button x:Name="bminus" Text="-" Clicked="Minus" />
+        <Entry x:Name="tqty" Text="0" HorizontalTextAlignment="Center" WidthRequest="80" TextColor="#f35e20" FontSize="20" />
+        <Button x:Name="bplus" Text="+" Clicked="Plus" />
+      </StackLayout>
+
+      <Button x:Name="badd" Text="Add to List" Clicked="NewEntry" />
+    </StackLayout>
+    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+      <Label Text="Item" TextColor="#9f3300" HorizontalOptions="FillAndExpand"/>
+      <Label Text="Unit" TextColor="#66ff66" HorizontalOptions="FillAndExpand"/>
+      <Label Text="Price" TextColor="#ffff99" HorizontalOptions="FillAndExpand"/>
+      <Label Text="Quantity" TextColor="#666699" HorizontalOptions="FillAndExpand"/>
+      <Label Text="Total" TextColor="#999966" HorizontalOptions="FillAndExpand"/>
+      <Label Text="[x]" TextColor="#a99966" HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+    <ListView  x:Name="gv" ItemTapped="OnItemTap">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+  <Grid  RowSpacing="10"
+    ColumnSpacing="10">
+ 
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="100" />
+    </Grid.RowDefinitions>
+ 
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="100" />
+    </Grid.ColumnDefinitions>
+
+  <!--
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            -->
+              <Label Text="{Binding name}" Grid.Row="0" Grid.Column="0"
+              TextColor="#9f3300" />
+              <Label Text="{Binding unit}" Grid.Row="0" Grid.Column="1"
+              TextColor="#66ff66" />
+              <Label Text="{Binding price}" Grid.Row="0" Grid.Column="2"
+              TextColor="#ffff99" />
+              <Label Text="{Binding qty}" Grid.Row="0" Grid.Column="3"
+              TextColor="#666699" />
+              <Label Text="{Binding total}" Grid.Row="0" Grid.Column="4"
+             TextColor="#999966" />
+    <!--
+              <Button Text="[X]" Grid.Row="0" Grid.Column="5" CommandParameter="{Binding name}" Clicked="DeleteEntry" />
+           -->
+           </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+      <Label Text="TOTAL : " TextColor="#ffff99" HorizontalOptions="StartAndExpand" />
+      <Label x:Name="ltotal" Text="0" TextColor="#bbff99" HorizontalOptions="EndAndExpand" />
+    </StackLayout>
+  </StackLayout>
+</ContentPage>

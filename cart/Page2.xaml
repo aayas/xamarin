@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cart.Page2">
+  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+    <Label x:Name="lhead" Text="ADD NEW PRODUCT"></Label>
+    <StackLayout Orientation="Horizontal" >
+      <Label x:Name="lname" Text="Name : "></Label>
+      <Entry x:Name="tname"  WidthRequest="200" ></Entry>
+    </StackLayout>
+    <StackLayout Orientation="Horizontal" >
+      <Label x:Name="lunit" Text="Unit : "></Label>
+      <Entry x:Name="tunit"  Placeholder="(ltr, kg, pc etc.)"  WidthRequest="200"></Entry>
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label x:Name="lprice" Text="Price : "></Label>
+      <Entry x:Name="tprice"  WidthRequest="200" ></Entry>
+    </StackLayout>
+    <Button x:Name="badd"  Text="ADD" Clicked="NewProduct"></Button>
+  </StackLayout>
+
+</ContentPage>

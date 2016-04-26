@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ww.Page1">
+  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+    <Button x:Name="bnext" Text="Add product" Clicked="NextPage1" />
+    <StackLayout Orientation="Horizontal">
+      <Label Text="choose item : " />
+      <Picker x:Name="pk1"  ></Picker>
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label Text="pick quantity : " HorizontalOptions="CenterAndExpand" />
+      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+        
+        <Button x:Name="bminus" Text="-" Clicked="Minus" />
+        <Entry x:Name="tqty" Text="0" HorizontalTextAlignment="Center" WidthRequest="80" TextColor="#f35e20" FontSize="15" />
+        <Button x:Name="bplus" Text="+" Clicked="Plus" />
+      </StackLayout>
+    </StackLayout>
+    <Button x:Name="badd" Text="Add to List" Clicked="NewEntry" />
+ <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+            <Label Text="Item" TextColor="#9f3300" HorizontalOptions="FillAndExpand"/>
+            <Label Text="Unit" TextColor="#66ff66" HorizontalOptions="FillAndExpand"/>
+            <Label Text="Price" TextColor="#ffff99" HorizontalOptions="FillAndExpand"/>
+            <Label Text="Quantity" TextColor="#666699" HorizontalOptions="FillAndExpand"/>
+            <Label Text="Total" TextColor="#999966" HorizontalOptions="FillAndExpand"/>
+</StackLayout>
+    <ListView  x:Name="gv">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+              <Label Text="{Binding name}" HorizontalOptions="FillAndExpand"
+              TextColor="#9f3300" />
+              <Label Text="{Binding unit}" HorizontalOptions="FillAndExpand"
+              TextColor="#66ff66" />
+              <Label Text="{Binding price}" HorizontalOptions="FillAndExpand"
+              TextColor="#ffff99" />
+              <Label Text="{Binding qty}" HorizontalOptions="FillAndExpand"
+              TextColor="#666699" />
+              <Label Text="{Binding total}" HorizontalOptions="FillAndExpand"
+             TextColor="#999966" />
+              <Button Text="[X]" HeightRequest="20" WidthRequest="20" CommandParameter="{Binding name}" Clicked="DeleteEntry" />
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+      <Label Text="TOTAL : " TextColor="#ffff99" HorizontalOptions="StartAndExpand" />
+      <Label x:Name="ltotal" Text="0" TextColor="#bbff99" HorizontalOptions="EndAndExpand" />
+    </StackLayout>
+  </StackLayout>
+</ContentPage>
